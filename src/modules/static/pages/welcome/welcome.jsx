@@ -38,7 +38,7 @@ function Welcome() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            brians
+            brianr482
           </a>
           &nbsp;&&nbsp;
           <a
@@ -46,7 +46,7 @@ function Welcome() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            juanse
+            juanse11
           </a>
         </Typography>
       </Box>
