@@ -40,6 +40,24 @@ $textShadow: 0px 4px 3px rgba(0,0,0,0.4),
       text-align: left;
       color: white;
       text-shadow: $textShadow;
+      vertical-align: middle;
+      display: inline-flex;
+      > svg {
+        fill: darkred;
+      }
+      > a {
+        all: unset;
+        color: #d4d4d4;
+        text-decoration: none;
+        -webkit-transition: all 0.375s cubic-bezier(0.4, 0, 0.2, 1);
+        -moz-transition: all 0.375s cubic-bezier(0.4, 0, 0.2, 1);
+        -o-transition: all 0.375s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.375s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        &:hover {
+          color: white;
+        }
+      }
     }
   }
 }

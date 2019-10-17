@@ -3,7 +3,10 @@ import {
   Fab,
   Typography,
 } from '@material-ui/core';
-import { Search as SearchIcon } from '@material-ui/icons';
+import { 
+  Favorite as FavoriteIcon,
+  Search as SearchIcon,
+} from '@material-ui/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './welcome.module.scss';
@@ -13,7 +16,7 @@ function Welcome() {
     <Box className={styles.wrapper}>
       <Box className={styles['home-section']}>
         <Typography variant="h1">
-          Bienvenido a EcoQuilla
+          Bienvenido a Quilla A La Mano
         </Typography>
         <Fab
           variant="extended"
@@ -21,13 +24,30 @@ function Welcome() {
           component={Link}
           to="/trees"
         >
-          Buscar árboles &nbsp;
+          Buscar sitios &nbsp;
           <SearchIcon />
         </Fab>
       </Box>
       <Box className={styles.footer}>
         <Typography variant="body1">
-          Cátedra Barranquilla 2019
+          made with&thinsp;
+          <FavoriteIcon />
+          &thinsp;by&nbsp;
+          <a
+            href="https://github.com/brianr482"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            brians
+          </a>
+          &nbsp;&&nbsp;
+          <a
+            href="https://github.com/juanse11"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            juanse
+          </a>
         </Typography>
       </Box>
     </Box>
