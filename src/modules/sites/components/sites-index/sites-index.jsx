@@ -17,18 +17,18 @@ import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
-import styles from './trees-index.module.scss';
+import styles from './sites-index.module.scss';
 
 const dummyRows = [
   {
-    name: 'Roble amarillo',
-    location: 'Zona sur',
-    age: '10 años',
+    name: 'Igleisa San Nicolás',
+    location: 'Av. El Progreso #35',
+    age: 'Más de 300 años',
     publicCode: 'a4g2jfh',
   },
 ];
 
-function TreesIndex({ history, location }) {
+function SitesIndex({ history, location }) {
   return (
     <Box className={styles.wrapper}>
       <Card className={styles.card}>
@@ -48,7 +48,7 @@ function TreesIndex({ history, location }) {
               </IconButton>
             </Box>
             <Typography variant="h5">
-              Lista de árboles
+              Lista de sitios
             </Typography>
           </Box>
           <Table className={styles['main-table']}>
@@ -99,9 +99,9 @@ function TreesIndex({ history, location }) {
   );
 }
 
-TreesIndex.propTypes = {
+SitesIndex.propTypes = {
   history: ReactRouterPropTypes.history.isRequired,
   location: ReactRouterPropTypes.location.isRequired,
 };
 
-export default withRouter(TreesIndex);
+export default withRouter(SitesIndex);

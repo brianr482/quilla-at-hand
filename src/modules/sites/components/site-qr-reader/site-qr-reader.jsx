@@ -9,7 +9,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import QrReader from 'react-qr-reader';
-import styles from './tree-qr-reader.module.scss';
+import styles from './site-qr-reader.module.scss';
 
 function handleScan(result) {
   // TODO: Remove log
@@ -25,7 +25,7 @@ function handleError(error) {
   console.log(`QR reader error => ${error}`);
 }
 
-function TreeDetail() {
+function SiteDetail() {
   return (
     <Box className={styles.wrapper}>
       <Card className={styles.card}>
@@ -41,7 +41,7 @@ function TreeDetail() {
                 <IconButton
                   aria-label="delete"
                   component={Link}
-                  to="/trees"
+                  to="/sites"
                 >
                   <KeyboardArrowLeftIcon fontSize="small" />
                 </IconButton>
@@ -51,7 +51,7 @@ function TreeDetail() {
                   Lector QR
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  Coloca el código QR del árbol
+                  Coloca el código QR del sitio
                 </Typography>
               </Box>
             </Box>
@@ -68,4 +68,4 @@ function TreeDetail() {
   );
 }
 
-export default TreeDetail;
+export default SiteDetail;

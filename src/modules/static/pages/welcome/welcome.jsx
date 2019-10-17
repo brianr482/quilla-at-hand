@@ -3,7 +3,7 @@ import {
   Fab,
   Typography,
 } from '@material-ui/core';
-import { 
+import {
   Favorite as FavoriteIcon,
   Search as SearchIcon,
 } from '@material-ui/icons';
@@ -16,13 +16,13 @@ function Welcome() {
     <Box className={styles.wrapper}>
       <Box className={styles['home-section']}>
         <Typography variant="h1">
-          Bienvenido a Quilla A La Mano
+          Quilla A La Mano
         </Typography>
         <Fab
           variant="extended"
           aria-label="delete"
           component={Link}
-          to="/trees"
+          to="/sites"
         >
           Buscar sitios &nbsp;
           <SearchIcon />

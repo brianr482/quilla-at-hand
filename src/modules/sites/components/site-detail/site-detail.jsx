@@ -9,21 +9,22 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import styles from './tree-detail.module.scss';
+import styles from './site-detail.module.scss';
 
-const dummyTree = {
-  name: 'Roble amarillo',
-  location: 'Zona sur',
-  age: '10 años',
+const dummySite = {
+  name: 'Iglesia San Nicolás',
+  location: 'Av. El Progreso #35',
+  age: 'Más de 300 años',
   publicCode: 'a4g2jfh',
   description: 'Donec et molestie eros, eu ultrices elit. Quisque tempus'
             + 'lacinia pellentesque. Fusce vel rutrum sapien, non viverra'
             + 'arcu. Ut eu libero at augue porttitor malesuada quis sit amet'
             + 'libero.',
-  imgSrc: 'https://picsum.photos/id/324/200/300',
+  imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/'
+        + 'Iglesia_de_San_Nicolas_de_Tolentino_%28Barranquilla%29.jpg/275px-Iglesia_de_San_Nicolas_de_Tolentino_%28Barranquilla%29.jpg',
 };
 
-function TreeDetail() {
+function SiteDetail() {
   return (
     <Box className={styles.wrapper}>
       <Card className={styles.card}>
@@ -38,18 +39,18 @@ function TreeDetail() {
                 <IconButton
                   aria-label="delete"
                   component={Link}
-                  to="/trees"
+                  to="/sites"
                 >
                   <KeyboardArrowLeftIcon fontSize="small" />
                 </IconButton>
               </Box>
               <Typography variant="h5">
-                {dummyTree.name}
+                {dummySite.name}
               </Typography>
             </Box>
             <Box mb={0.75}>
               <Typography variant="subtitle2" color="textSecondary">
-                {`${dummyTree.age} |  ${dummyTree.location}`}
+                {`${dummySite.age} |  ${dummySite.location}`}
               </Typography>
             </Box>
             <Typography
@@ -57,19 +58,19 @@ function TreeDetail() {
               align="justify"
               color="textSecondary"
             >
-              {dummyTree.description}
+              {dummySite.description}
             </Typography>
           </CardContent>
         </Box>
         <CardMedia
           className={styles['cover-image']}
           component="img"
-          image={dummyTree.imgSrc}
-          title={`Picture of the ${dummyTree.name} tree`}
+          image={dummySite.imgSrc}
+          title={`Picture of the ${dummySite.name} site`}
         />
       </Card>
     </Box>
   );
 }
 
-export default TreeDetail;
+export default SiteDetail;
