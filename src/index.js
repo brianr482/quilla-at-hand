@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/main.scss';
-import { BrowserRouter } from 'react-router-dom';
-import Home from './pages/home/home';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/main.scss";
+import { BrowserRouter } from "react-router-dom";
+import Home from "./pages/home/home";
+import * as serviceWorker from "./serviceWorker";
+import { StylesProvider } from "@material-ui/styles";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Home />
-  </BrowserRouter>,
-  document.getElementById('root'),
+  <StylesProvider injectFirst>
+    <BrowserRouter>
+      <Home />
+    </BrowserRouter>
+  </StylesProvider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

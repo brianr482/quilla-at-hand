@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Welcome } from '../../modules/static';
 import { Sites } from '../../modules/sites';
+import { Admin } from '../../modules/admin'
 import styles from './home.module.scss';
 
 function Home() {
@@ -11,6 +12,7 @@ function Home() {
       <Switch>
         <Route exact path="/" component={Welcome} />
         <Route path="/sites" component={Sites} />
+        <Route path="/admin" component={Admin} />
       </Switch>
     </div>
   );
