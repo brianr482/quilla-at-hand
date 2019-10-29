@@ -1,0 +1,18 @@
+.toolbar{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.picture {
+  margin: 0 0.5em;
+}
+
+.badge {
+  background-color: #44b700;
+}

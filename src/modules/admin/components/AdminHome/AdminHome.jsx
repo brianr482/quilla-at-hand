@@ -1,10 +1,14 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
+import { Typography, Box } from "@material-ui/core";
+import ModuleCard from "./ModuleCard/ModuleCard";
+import styles from "./AdminHome.module.scss";
 
 const AdminHome = () => (
-  <Typography paragraph>
-    Lolololololololllloloololoololololololololololoololololool
-  </Typography>
+  <Box className={styles.wrapper}>
+    {/* <ModuleCard title="Que pasa gente" />
+    <ModuleCard title="Que pasa" />
+    <ModuleCard title="Que" /> */}
+  </Box>
 );
 
 export default AdminHome;

@@ -11,10 +11,10 @@ import AdminHome from "../../../components/AdminHome/AdminHome";
 import AdminDrawer from "../../../components/AdminDrawer/AdminDrawer";
 import AdminAppBar from "../../../components/AdminAppBar/AdminAppBar";
 
-
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    height: "100%"
   },
   toolbar: theme.mixins.toolbar,
   content: {
