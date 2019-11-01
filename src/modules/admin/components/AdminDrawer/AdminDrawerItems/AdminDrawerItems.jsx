@@ -10,9 +10,16 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import { Typography } from "@material-ui/core";
+import styles from "./AdminDrawerItems.module.scss";
 
 const useStyles = makeStyles(theme => ({
-  toolbar: theme.mixins.toolbar
+  toolbar: {
+    ...theme.mixins.toolbar,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  }
 }));
 
 function DrawerItems() {
@@ -20,21 +27,25 @@ function DrawerItems() {
 
   return (
     <React.Fragment>
-      <div className={classes.toolbar} />
+      <div className={classes.toolbar}>
+        <Typography className={styles.title} component="h1" variant="h5">
+          Quilla A La Mano
+        </Typography>
+      </div>
       <Divider />
       <List>
         <ListItem component={Link} to="/admin/dashboard" button key={1}>
-          <ListItemIcon>
+          <ListItemIcon className={styles.text}>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText primary="Inicio" />
+          <ListItemText className={styles.text} primary="Inicio" />
         </ListItem>
 
         <ListItem component={Link} to="/admin/dashboard/sitios" button key={2}>
-          <ListItemIcon>
+          <ListItemIcon className={styles.text}>
             <LocationOnIcon />
           </ListItemIcon>
-          <ListItemText primary="Sitios Turísticos" />
+          <ListItemText className={styles.text} primary="Sitios Turísticos" />
         </ListItem>
         <ListItem
           component={Link}
@@ -42,16 +53,16 @@ function DrawerItems() {
           button
           key={3}
         >
-          <ListItemIcon>
+          <ListItemIcon className={styles.text}>
             <RestaurantIcon />
           </ListItemIcon>
-          <ListItemText primary="Restaurantes" />
+          <ListItemText className={styles.text} primary="Restaurantes" />
         </ListItem>
         <ListItem component={Link} to="/admin/dashboard/tips" button key={4}>
-          <ListItemIcon>
+          <ListItemIcon className={styles.text}>
             <EmojiObjectsIcon />
           </ListItemIcon>
-          <ListItemText primary="Tips" />
+          <ListItemText className={styles.text} primary="Tips" />
         </ListItem>
       </List>
     </React.Fragment>

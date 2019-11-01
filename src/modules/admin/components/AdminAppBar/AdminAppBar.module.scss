@@ -1,12 +1,18 @@
 .toolbar{
   display: flex;
   justify-content: flex-end;
+  background-color: #d4d9e1;
+  box-shadow: none;
 }
-
+.username{
+  color: #4e4d50;
+  font-weight: bold;
+}
 .profile-wrapper {
+  border-radius: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin-left: auto;
 }
 
 .picture {

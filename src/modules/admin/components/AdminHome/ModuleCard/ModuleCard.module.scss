@@ -1,12 +1,32 @@
+.card {
+  max-width: 345px;
+  margin: 0 1em;
+}
+
+.card-content {
+  width: 250px;
+  height: 220px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em 2em;
+}
 .card-icon {
-  width: 320px;
-  height: 296px;
   display: inline-flex;
   justify-content: center;
   flex-flow: row wrap;
   align-items: center;
+  margin-bottom: .8em;
 }
 
-.icon{
-  font-size: 5em;
+
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  color: #00796b;
 }

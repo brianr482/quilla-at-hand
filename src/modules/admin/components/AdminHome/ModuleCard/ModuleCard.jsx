@@ -8,41 +8,23 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import RestaurantIcon from "@material-ui/icons/Restaurant";
+import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
 import styles from "./ModuleCard.module.scss";
 
-const useStyles = makeStyles({
-  card: {
-    maxWidth: 345
-  },
-  media: {
-    height: 140
-  }
-});
-
-export default function MediaCard({ title }) {
-  const classes = useStyles();
-
+export default function MediaCard({ title, icon }) {
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardContent>
-          <Box className={styles["card-icon"]}>
-            <RestaurantIcon className={styles.icon} />
-          </Box>
-          <Typography gutterBottom variant="h5" component="h2">
-            {title}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
+    <Card className={styles.card}>
+      <CardContent className={styles["card-content"]}>
+        <Box className={styles["card-icon"]} gutterBottom>
+          {icon}
+        </Box>
+        <Typography align="center" variant="h6" component="h2">
+          {title}
+        </Typography>
+        <Button size="small" className={styles.button}>
+          Ir a {title}
         </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
+      </CardContent>
     </Card>
   );
 }

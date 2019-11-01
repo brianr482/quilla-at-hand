@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: drawerWidth,
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`
-    }
+    },
+    boxShadow: "none"
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -30,7 +31,6 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
-
 
 function AdminAppBar(props) {
   const classes = useStyles();
@@ -68,10 +68,15 @@ function AdminAppBar(props) {
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleMenu}
+            className={styles["profile-wrapper"]}
             color="inherit"
           >
             <Box className={styles["profile-wrapper"]}>
-              <Typography variant="subtitle1" noWrap>
+              <Typography
+                className={styles.username}
+                variant="subtitle1"
+                noWrap
+              >
                 Alvaro Uribe
               </Typography>
               <Badge
