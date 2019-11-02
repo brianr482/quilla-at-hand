@@ -1,0 +1,27 @@
+.table {
+  min-width: 0;
+}
+
+.row-name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .avatar {
+    margin-right: 0.4em;
+  }
+}
+
+.actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .action-qr {
+    color: #3a4652;
+  }
+  .action-edit {
+    color: #00796b;
+  }
+  .action-delete {
+    color: #f50057;
+  }
+}

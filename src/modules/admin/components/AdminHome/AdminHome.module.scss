@@ -1,37 +1,3 @@
-.section {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  margin: 0.5em 0;
-  background-color: white;
-  padding: 1em;
-  .section-title {
-    margin-left: 0.2em;
-    font-size: 1.8em;
-    font-weight: 500;
-    color: black;
-  }
-}
 .icon {
   font-size: 4em;
-}
-.divider {
-  margin: 2em 0;
-}
-
-.wrapper {
-  padding: 2em 4em;
-  background-color: #eff3f6;
-  padding: 2em 4em;
-  height: 100%;
-}
-
-.content {
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-flow: row wrap;
-  margin: 0 -1em;
 }

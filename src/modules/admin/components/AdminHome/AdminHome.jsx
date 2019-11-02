@@ -6,18 +6,11 @@ import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import FastfoodOutlinedIcon from "@material-ui/icons/FastfoodOutlined";
 import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
+import ModuleContainer from "../ModuleContainer/ModuleContainer";
 
 const AdminHome = () => (
-  <Box className={styles.wrapper}>
-    <Box className={styles.section}>
-      <HomeOutlinedIcon fontSize="large" />
-      <Typography className={styles["section-title"]} variant="h1">
-        Inicio
-      </Typography>
-    </Box>
-    <Divider className={styles.divider} />
-    <Box className={styles.content}>
-      <ModuleCard
+  <ModuleContainer title="Inicio">
+    <ModuleCard
         title="Sitios Turisticos"
         icon={<RoomOutlinedIcon className={styles.icon} />}
       />
@@ -29,8 +22,7 @@ const AdminHome = () => (
         title="Tips"
         icon={<EmojiObjectsOutlinedIcon className={styles.icon} />}
       />
-    </Box>
-  </Box>
+  </ModuleContainer>
 );
 
 export default AdminHome;

@@ -100,7 +100,7 @@ function AdminAppBar(props) {
             id="menu-appbar"
             anchorEl={anchorEl}
             anchorOrigin={{
-              vertical: "top",
+              vertical: "bottom",
               horizontal: "right"
             }}
             keepMounted
@@ -111,8 +111,8 @@ function AdminAppBar(props) {
             open={open}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Mi cuenta</MenuItem>
+            <MenuItem onClick={handleClose}>Cerrar Sesión</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

@@ -1,0 +1,29 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0.5em 0;
+  .section-title {
+    font-size: 2em;
+    font-weight: 500;
+    color: black;
+  }
+}
+.divider {
+  margin: 2em 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 4em;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  margin: 0 -1em;
+}
