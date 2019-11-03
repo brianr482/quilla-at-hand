@@ -10,13 +10,14 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
 import styles from "./ModuleCard.module.scss";
+import { Avatar } from "@material-ui/core";
 
 export default function MediaCard({ title, icon }) {
   return (
     <Card className={styles.card}>
       <CardContent className={styles["card-content"]}>
         <Box className={styles["card-icon"]} gutterBottom>
-          {icon}
+          <Avatar className={styles.avatar}>{icon}</Avatar>
         </Box>
         <Typography align="center" variant="h6" component="h2">
           {title}

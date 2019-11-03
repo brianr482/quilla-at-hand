@@ -19,6 +19,8 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
     height: "100%"
   }
 }));

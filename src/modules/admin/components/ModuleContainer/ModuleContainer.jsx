@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Divider, IconButton } from "@material-ui/core";
+import { Typography, Box, Divider, IconButton, Tooltip } from "@material-ui/core";
 import styles from "./ModuleContainer.module.scss";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import FastfoodOutlinedIcon from "@material-ui/icons/FastfoodOutlined";
@@ -21,9 +21,11 @@ const ModuleContainer = ({ title, children, add }) => (
         {title}
       </Typography>
       {add && (
-        <IconButton disableRipple className={styles.add}>
+        <Tooltip title="Crear">
+          <IconButton disableRipple className={styles.add}>
           <AddIcon fontSize="inherit" />
         </IconButton>
+        </Tooltip>
       )}
     </Box>
     <Box className={styles.content}>{children}</Box>

@@ -61,22 +61,24 @@ export default function SitesTable() {
               </TableCell>
               <TableCell>{row.location}</TableCell>
               <TableCell>{row.age}</TableCell>
-              <TableCell className={styles.actions}>
-                <Tooltip title="Ver código QR">
-                  <IconButton className={styles["action-qr"]}>
-                    <CropFreeOutlinedIcon fontSize="inherit" />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Editar sitio">
-                  <IconButton className={styles["action-edit"]}>
-                    <CreateOutlinedIcon fontSize="inherit" />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Eliminar Sitio">
-                  <IconButton className={styles["action-delete"]}>
-                    <DeleteForeverOutlinedIcon fontSize="inherit" />
-                  </IconButton>
-                </Tooltip>
+              <TableCell>
+                <Box className={styles.actions}>
+                  <Tooltip title="Código QR">
+                    <IconButton className={styles["action-qr"]}>
+                      <CropFreeOutlinedIcon fontSize="inherit" />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Editar">
+                    <IconButton className={styles["action-edit"]}>
+                      <CreateOutlinedIcon fontSize="inherit" />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Eliminar">
+                    <IconButton className={styles["action-delete"]}>
+                      <DeleteForeverOutlinedIcon fontSize="inherit" />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </TableCell>
             </TableRow>
           ))}

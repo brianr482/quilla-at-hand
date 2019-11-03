@@ -32,7 +32,6 @@ function DrawerItems() {
           Quilla A La Mano
         </Typography>
       </div>
-      <Divider />
       <List>
         <ListItem component={Link} to="/admin/dashboard" button key={1}>
           <ListItemIcon className={styles.text}>
