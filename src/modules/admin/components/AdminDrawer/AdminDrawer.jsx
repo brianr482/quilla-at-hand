@@ -22,15 +22,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function AdminDrawer(props) {
-  const { container } = props;
+function AdminDrawer({ mobileOpen, handleDrawerToggle, container }) {
   const classes = useStyles();
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
 
   return (
     <React.Fragment>

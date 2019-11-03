@@ -32,23 +32,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function AdminAppBar(props) {
+function AdminAppBar({ anchorEl, handleClose, handleDrawerToggle, handleMenu }) {
   const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
-  const handleMenu = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
   return (
     <React.Fragment>
       <CssBaseline />

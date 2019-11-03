@@ -5,7 +5,7 @@ import ModuleContainer from "../ModuleContainer/ModuleContainer";
 import SitesTable from "./SitesTable/SitesTable";
 
 const AdminSites = () => (
-  <ModuleContainer title="Sitios Turísticos">
+  <ModuleContainer title="Sitios Turísticos" add>
     <Box className={styles.wrapper}>
       <SitesTable />
     </Box>

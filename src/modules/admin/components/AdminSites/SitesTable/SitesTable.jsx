@@ -8,7 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import styles from "./SitesTable.module.scss";
-import { IconButton, Avatar } from "@material-ui/core";
+import { IconButton, Avatar, Tooltip } from "@material-ui/core";
 import CreateOutlinedIcon from "@material-ui/icons/CreateOutlined";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import CropFreeOutlinedIcon from "@material-ui/icons/CropFreeOutlined";
@@ -62,15 +62,21 @@ export default function SitesTable() {
               <TableCell>{row.location}</TableCell>
               <TableCell>{row.age}</TableCell>
               <TableCell className={styles.actions}>
-                <IconButton className={styles["action-qr"]}>
-                  <CropFreeOutlinedIcon fontSize="inherit" />
-                </IconButton>
-                <IconButton className={styles["action-edit"]}>
-                  <CreateOutlinedIcon fontSize="inherit" />
-                </IconButton>
-                <IconButton className={styles["action-delete"]}>
-                  <DeleteForeverOutlinedIcon fontSize="inherit" />
-                </IconButton>
+                <Tooltip title="Ver código QR">
+                  <IconButton className={styles["action-qr"]}>
+                    <CropFreeOutlinedIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Editar sitio">
+                  <IconButton className={styles["action-edit"]}>
+                    <CreateOutlinedIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Eliminar Sitio">
+                  <IconButton className={styles["action-delete"]}>
+                    <DeleteForeverOutlinedIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
               </TableCell>
             </TableRow>
           ))}

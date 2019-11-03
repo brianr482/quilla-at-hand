@@ -19,21 +19,40 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: "100%",
-    backgroundColor: "#eff3f6"
-
+    height: "100%"
   }
 }));
 
 function AdminDashboard(props) {
   const { match } = props;
   const classes = useStyles();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
 
+  const handleMenu = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AdminAppBar />
-      <AdminDrawer />
+      <AdminAppBar
+        anchorEl={anchorEl}
+        handleMenu={handleMenu}
+        handleClose={handleClose}
+        handleDrawerToggle={handleDrawerToggle}
+      />
+      <AdminDrawer
+        mobileOpen={mobileOpen}
+        handleDrawerToggle={handleDrawerToggle}
+      />
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Switch>
