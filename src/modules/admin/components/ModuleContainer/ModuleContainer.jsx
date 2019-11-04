@@ -1,18 +1,12 @@
-import React from "react";
-import { Typography, Box, Divider, IconButton, Tooltip } from "@material-ui/core";
-import styles from "./ModuleContainer.module.scss";
-import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
-import FastfoodOutlinedIcon from "@material-ui/icons/FastfoodOutlined";
-import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
-import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
-import AddIcon from "@material-ui/icons/Add";
+import React from 'react';
+import {
+  Typography, Box, IconButton, Tooltip,
+} from '@material-ui/core';
+import PropTypes from 'prop-types';
 
-const icons = {
-  Inicio: <HomeOutlinedIcon fontSize="large" />,
-  "Sitios Turísticos": <RoomOutlinedIcon fontSize="large" />,
-  Restaurantes: <FastfoodOutlinedIcon fontSize="large" />,
-  Tips: <EmojiObjectsOutlinedIcon fontSize="large" />
-};
+import AddIcon from '@material-ui/icons/Add';
+import styles from './ModuleContainer.module.scss';
+
 
 const ModuleContainer = ({ title, children, add }) => (
   <Box className={styles.wrapper}>
@@ -23,13 +17,23 @@ const ModuleContainer = ({ title, children, add }) => (
       {add && (
         <Tooltip title="Crear">
           <IconButton disableRipple className={styles.add}>
-          <AddIcon fontSize="inherit" />
-        </IconButton>
+            <AddIcon fontSize="inherit" />
+          </IconButton>
         </Tooltip>
       )}
     </Box>
     <Box className={styles.content}>{children}</Box>
   </Box>
 );
+
+ModuleContainer.propTypes = {
+  title: PropTypes.string.isRequired,
+  add: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+};
+
+ModuleContainer.defaultProps = {
+  add: false,
+};
 
 export default ModuleContainer;

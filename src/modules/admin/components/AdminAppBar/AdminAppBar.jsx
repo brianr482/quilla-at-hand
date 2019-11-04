@@ -1,42 +1,47 @@
-import React from "react";
-import { Box, Container, Badge } from "@material-ui/core";
-import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import IconButton from "@material-ui/core/IconButton";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MenuIcon from "@material-ui/icons/Menu";
-import Toolbar from "@material-ui/core/Toolbar";
-import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import styles from "./AdminAppBar.module.scss";
-import profilePicture from "../../../../assets/perfil.jpg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Box, Badge } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import MenuIcon from '@material-ui/icons/Menu';
+import Toolbar from '@material-ui/core/Toolbar';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import styles from './AdminAppBar.module.scss';
+import profilePicture from '../../../../assets/perfil.jpg';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     marginLeft: drawerWidth,
-    [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
     },
-    boxShadow: "none"
+    boxShadow: 'none',
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none"
-    }
-  }
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
 }));
 
-function AdminAppBar({ anchorEl, handleClose, handleDrawerToggle, handleMenu }) {
+function AdminAppBar({
+  anchorEl,
+  handleClose,
+  handleDrawerToggle,
+  handleMenu,
+}) {
   const classes = useStyles();
   const open = Boolean(anchorEl);
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar className={styles.toolbar}>
@@ -54,10 +59,10 @@ function AdminAppBar({ anchorEl, handleClose, handleDrawerToggle, handleMenu }) 
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleMenu}
-            className={styles["profile-wrapper"]}
+            className={styles['profile-wrapper']}
             color="inherit"
           >
-            <Box className={styles["profile-wrapper"]}>
+            <Box className={styles['profile-wrapper']}>
               <Typography
                 className={styles.username}
                 variant="subtitle1"
@@ -69,8 +74,8 @@ function AdminAppBar({ anchorEl, handleClose, handleDrawerToggle, handleMenu }) 
                 classes={{ badge: styles.badge }}
                 overlap="circle"
                 anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "right"
+                  vertical: 'bottom',
+                  horizontal: 'right',
                 }}
                 variant="dot"
               >
@@ -86,13 +91,13 @@ function AdminAppBar({ anchorEl, handleClose, handleDrawerToggle, handleMenu }) 
             id="menu-appbar"
             anchorEl={anchorEl}
             anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "right"
+              vertical: 'bottom',
+              horizontal: 'right',
             }}
             keepMounted
             transformOrigin={{
-              vertical: "top",
-              horizontal: "right"
+              vertical: 'top',
+              horizontal: 'right',
             }}
             open={open}
             onClose={handleClose}
@@ -102,8 +107,19 @@ function AdminAppBar({ anchorEl, handleClose, handleDrawerToggle, handleMenu }) 
           </Menu>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </>
   );
 }
+
+AdminAppBar.propTypes = {
+  handleClose: PropTypes.func.isRequired,
+  anchorEl: PropTypes.oneOfType([PropTypes.object]),
+  handleDrawerToggle: PropTypes.func.isRequired,
+  handleMenu: PropTypes.func.isRequired,
+};
+
+AdminAppBar.defaultProps = {
+  anchorEl: null,
+};
 
 export default AdminAppBar;
