@@ -6,20 +6,27 @@ import styles from './Admin.module.scss';
 import AdminLogin from '../../components/admin-login/admin-login';
 import PrivateRoute from '../../../utils/PrivateRoute';
 import AdminDashboard from './AdminDashboard/AdminDashboard';
+import useAuth from '../../../utils/hooks/useAuth';
+import userContext from '../../../utils/contexts/userContext';
 
-const Admin = ({ match }) => (
-  <Box className={styles.wrapper}>
-    <Switch>
-      <Route exact path={`${match.url}`} component={AdminLogin} />
-      <PrivateRoute>
-        <Route
-          path={`${match.url}/dashboard`}
-          component={AdminDashboard}
-        />
-      </PrivateRoute>
-    </Switch>
-  </Box>
-);
+const Admin = ({ match }) => {
+  const { initializing, user } = useAuth();
+  return (
+    <Box className={styles.wrapper}>
+      <Switch>
+        <Route exact path={`${match.url}`} component={AdminLogin} />
+        <userContext.Provider value={{ user, initializing }}>
+          <PrivateRoute>
+            <Route
+              path={`${match.url}/dashboard`}
+              component={AdminDashboard}
+            />
+          </PrivateRoute>
+        </userContext.Provider>
+      </Switch>
+    </Box>
+  );
+};
 
 Admin.propTypes = {
   match: ReactRouterPropTypes.match.isRequired,

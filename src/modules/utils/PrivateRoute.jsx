@@ -1,12 +1,23 @@
-import React, { Fragment } from "react";
-import { Redirect } from "react-router-dom";
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import useSession from './hooks/useSession';
 
-const isUserAuthenticated = true;
+const PrivateRoute = (props) => {
+  const { children } = props;
+  const { user } = useSession();
+  return (
+    <>
+      {user ? children : <Redirect to="/admin" />}
+    </>
+  );
+};
 
-const PrivateRoute = props => (
-  <Fragment>
-    {isUserAuthenticated ? props.children : <Redirect to="/admin" />}
-  </Fragment>
-);
+PrivateRoute.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
 
 export default PrivateRoute;
