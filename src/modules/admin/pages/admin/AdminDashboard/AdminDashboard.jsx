@@ -11,6 +11,7 @@ import AdminTips from '../../../components/AdminTips/AdminTips';
 import AdminHome from '../../../components/AdminHome/AdminHome';
 import AdminDrawer from '../../../components/AdminDrawer/AdminDrawer';
 import AdminAppBar from '../../../components/AdminAppBar/AdminAppBar';
+import AdminCreatePost from '../../../components/AdminCreatePost/AdminCreatePost';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,6 +61,7 @@ function AdminDashboard(props) {
         <Switch>
           <Route exact path={`${match.url}`} component={AdminHome} />
           <Route exact path={`${match.url}/sitios`} component={AdminSites} />
+          <Route exact path={`${match.url}/crear`} component={AdminCreatePost} />
           <Route
             exact
             path={`${match.url}/restaurantes`}

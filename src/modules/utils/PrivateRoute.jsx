@@ -5,7 +5,8 @@ import useSession from './hooks/useSession';
 
 const PrivateRoute = (props) => {
   const { children } = props;
-  const { user } = useSession();
+  // const { user } = useSession();
+  const user = true;
   return (
     <>
       {user ? children : <Redirect to="/admin" />}

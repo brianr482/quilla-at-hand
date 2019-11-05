@@ -4,5 +4,4 @@ import 'firebase/auth';
 import env from './environment/enviroment';
 
 firebase.initializeApp(env.firebase);
-
 export default firebase;

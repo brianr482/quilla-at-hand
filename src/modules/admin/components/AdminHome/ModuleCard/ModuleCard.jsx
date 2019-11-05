@@ -20,6 +20,7 @@ export default function ModuleCard({ title, icon }) {
         </Typography>
         <Button size="small" className={styles.button}>
           Ir a
+          {' '}
           {title}
         </Button>
       </CardContent>
