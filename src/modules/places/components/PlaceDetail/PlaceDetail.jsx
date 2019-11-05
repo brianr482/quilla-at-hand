@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import styles from './site-detail.module.scss';
+import styles from './PlaceDetail.module.scss';
 
 const dummySite = {
   name: 'Iglesia San Nicolás',
@@ -24,7 +24,7 @@ const dummySite = {
         + 'Iglesia_de_San_Nicolas_de_Tolentino_%28Barranquilla%29.jpg/275px-Iglesia_de_San_Nicolas_de_Tolentino_%28Barranquilla%29.jpg',
 };
 
-function SiteDetail() {
+function PlaceDetail() {
   return (
     <Box className={styles.wrapper}>
       <Card className={styles.card}>
@@ -73,4 +73,4 @@ function SiteDetail() {
   );
 }
 
-export default SiteDetail;
+export default PlaceDetail;

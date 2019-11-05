@@ -9,7 +9,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import QrReader from 'react-qr-reader';
-import styles from './site-qr-reader.module.scss';
+import styles from './PlaceQrReader.module.scss';
 
 function handleScan(result) {
   // TODO: Remove log
@@ -25,7 +25,7 @@ function handleError(error) {
   console.log(`QR reader error => ${error}`);
 }
 
-function SiteDetail() {
+function PlaceQrReader() {
   return (
     <Box className={styles.wrapper}>
       <Card className={styles.card}>
@@ -41,7 +41,7 @@ function SiteDetail() {
                 <IconButton
                   aria-label="delete"
                   component={Link}
-                  to="/sites"
+                  to="/places"
                 >
                   <KeyboardArrowLeftIcon fontSize="small" />
                 </IconButton>
@@ -68,4 +68,4 @@ function SiteDetail() {
   );
 }
 
-export default SiteDetail;
+export default PlaceQrReader;

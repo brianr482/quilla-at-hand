@@ -22,7 +22,7 @@ function Welcome() {
           variant="extended"
           aria-label="delete"
           component={Link}
-          to="/sites"
+          to="/places"
         >
           Buscar sitios &nbsp;
           <SearchIcon />
