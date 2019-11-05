@@ -10,10 +10,25 @@
 .card {
   display: flex;
   max-width: 550px;
-  .content {
-    flex: '1 0 auto',
+  max-height: 90%;
+  &-content{
+    height: 100%;
+    min-height: 200px;
+    min-width: 200px;
+    max-width: 530px;
+    overflow: auto;
   }
   .cover-image {
-    width: 140px;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+@media screen and(min-width: 1000px) {
+  .card {
+    max-width: 90%;
+    .cover-image {
+      max-width: 400px;
+    }
   }
 }

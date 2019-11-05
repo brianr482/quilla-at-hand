@@ -15,7 +15,7 @@ function Places({ match }) {
       <Switch>
         <Route exact path={`${match.url}`} component={PlacesIndex} />
         <Route exact path={`${match.url}/search`} component={PlaceQrReader} />
-        <Route exact path={`${match.url}/:publicCode`} component={PlaceDetail} />
+        <Route exact path={`${match.url}/:id`} component={PlaceDetail} />
       </Switch>
     </Box>
   );
