@@ -68,7 +68,7 @@ function AdminAppBar({
                 variant="subtitle1"
                 noWrap
               >
-                Alvaro Uribe
+                Juan Estrada
               </Typography>
               <Badge
                 classes={{ badge: styles.badge }}
