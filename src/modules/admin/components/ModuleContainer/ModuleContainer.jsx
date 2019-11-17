@@ -20,9 +20,13 @@ const ModuleContainer = ({
       {(add || edit) && (
         <Tooltip title="Crear">
           <Link to="/admin/dashboard/crear">
-            <IconButton disableRipple className={styles.add}>
-              {add ? <AddIcon fontSize="inherit" /> : <SaveIcon fontSize="inherit" />}
-            </IconButton>
+            {add ? (
+              <IconButton disableRipple className={styles.add}>
+                <AddIcon fontSize="inherit" />
+              </IconButton>
+            ) : edit()}
+
+
           </Link>
 
         </Tooltip>
@@ -36,13 +40,13 @@ ModuleContainer.propTypes = {
   title: PropTypes.string.isRequired,
   className: PropTypes.string,
   add: PropTypes.bool,
-  edit: PropTypes.bool,
+  edit: PropTypes.elementType,
   children: PropTypes.node.isRequired,
 };
 
 ModuleContainer.defaultProps = {
   add: false,
-  edit: false,
+  edit: undefined,
   className: undefined,
 };
 
