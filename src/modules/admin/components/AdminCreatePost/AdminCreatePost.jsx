@@ -10,6 +10,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import styles from './AdminCreatePost.module.scss';
 import ModuleContainer from '../ModuleContainer/ModuleContainer';
 import PictureInput from './PictureInput/PictureInput';
+import InputContainer from './InputContainer/InputContainer';
 
 const postTypes = ['Sitio Turístico', 'Restaurante', 'Tips'];
 
@@ -56,65 +57,45 @@ const AdminCreatePost = () => (
           bindSubmit(submitForm);
           return (
             <Form>
-              <Box className={styles.wrapper}>
-                <Typography className={styles.subtitle} component="h1" variant="h6">
-                  Nombre de Publicación
-                </Typography>
-                <Box className={styles['input-wrapper']}>
+              <InputContainer className={`${styles.wrapper}`} subtitle="Nombre de Publicación">
+                <Field
+                  type="input"
+                  name="name"
+                  as={InputBase}
+                  className={styles.input}
+                  placeholder="Nombre"
+                  inputProps={{ 'aria-label': 'nombre publicación' }}
+                />
+              </InputContainer>
+              <InputContainer className={`${styles.wrapper}`} select subtitle="Tipo de Publicación">
+                {postTypes.map((type) => (
+                  <Box key={type} onClick={() => setFieldValue('type', type)} className={type === values.type ? styles['type-active'] : styles.type}>
+                    <Typography className={styles.text} component="h1" variant="subtitle2">
+                      {type}
+                    </Typography>
+                  </Box>
+                ))}
+              </InputContainer>
+              <Box className={`${styles.wrapper} ${styles['row-wrapper']}`}>
+                <InputContainer className={`${styles.wrapper} ${styles.description}`} subtitle="Descripción de Publicación">
                   <Field
                     type="input"
-                    name="name"
+                    name="description"
                     as={InputBase}
+                    multiline
+                    rows={8}
                     className={styles.input}
-                    placeholder="Nombre"
+                    placeholder="Descripción"
                     inputProps={{ 'aria-label': 'nombre publicación' }}
                   />
-                </Box>
-              </Box>
-              <Box className={styles.wrapper}>
-                <Typography className={styles.subtitle} component="h1" variant="h6">
-                  Tipo de Publicación
-                </Typography>
-                <Box className={styles.types}>
-                  {postTypes.map((type) => (
-                    <Box key={type} onClick={() => setFieldValue('type', type)} className={type === values.type ? styles['type-active'] : styles.type}>
-                      <Typography className={styles.text} component="h1" variant="subtitle2">
-                        {type}
-                      </Typography>
-                    </Box>
-                  ))}
-                </Box>
-              </Box>
-              <Box className={`${styles.wrapper} ${styles['row-wrapper']}`}>
-                <Box className={`${styles.wrapper} ${styles.description}`}>
-                  <Typography className={styles.subtitle} component="h1" variant="h6">
-                    Descripción de Publicación
-                  </Typography>
-                  <Box className={styles['input-wrapper']}>
-                    <Field
-                      type="input"
-                      name="description"
-                      as={InputBase}
-                      multiline
-                      rows={8}
-                      className={styles.input}
-                      placeholder="Descripción"
-                      inputProps={{ 'aria-label': 'nombre publicación' }}
-                    />
-                  </Box>
-                </Box>
-                <Box className={`${styles.wrapper} ${styles.image}`}>
-                  <Typography className={styles.subtitle} component="h1" variant="h6">
-                    Imagen de Publicación
-                  </Typography>
-                  <Box component="label" className={styles['input-wrapper']}>
-                    <AddAPhotoIcon className={styles.icon} />
-                    <Typography className={styles.text} component="h1" variant="subtitle2">
+                </InputContainer>
+                <InputContainer className={`${styles.wrapper} ${styles.image}`} file subtitle="Imagen de Publicación">
+                  <AddAPhotoIcon className={styles.icon} />
+                  <Typography className={styles['icon-footer']} component="h1" variant="subtitle2">
                       Agregar Imagen
-                    </Typography>
-                    <PictureInput setFieldValue={setFieldValue} />
-                  </Box>
-                </Box>
+                  </Typography>
+                  <PictureInput setFieldValue={setFieldValue} />
+                </InputContainer>
               </Box>
             </Form>
           );

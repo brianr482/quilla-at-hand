@@ -1,0 +1,39 @@
+  .subtitle{
+    margin-top: .5em;
+    color: #4e4d50;
+    font-weight: 400;
+  }
+  .types{
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  max-width: 700px;
+  margin:0 -1em;
+}
+  
+  .input-wrapper{
+    background: white;
+    border: 1px solid #dfe1e5;
+    margin: 1em 0;
+    padding: .5em 1em;
+    max-width: 375px;
+    display: flex;
+    align-items: center;
+    .input{
+      flex: 1;
+    }
+  }
+  
+  .files{
+    background: white;
+    border: 1px solid #dfe1e5;
+    margin: 1em 0;
+    padding: .5em 1em;
+    max-width: 375px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    min-height: 180px;
+  }

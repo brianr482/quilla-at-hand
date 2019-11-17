@@ -5,7 +5,6 @@ import {
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AddIcon from '@material-ui/icons/Add';
-import SaveIcon from '@material-ui/icons/Save';
 import styles from './ModuleContainer.module.scss';
 
 
@@ -25,8 +24,6 @@ const ModuleContainer = ({
                 <AddIcon fontSize="inherit" />
               </IconButton>
             ) : edit()}
-
-
           </Link>
 
         </Tooltip>
