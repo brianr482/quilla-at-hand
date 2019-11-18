@@ -16,7 +16,6 @@ import CropFreeOutlinedIcon from '@material-ui/icons/CropFreeOutlined';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import firebase from '../../../../../firebase';
 import styles from './SitesTable.module.scss';
-import pictureExample from '../../../../../assets/saint_nicholas_wallpaper.jpg';
 
 const useStyles = makeStyles({
   root: {
