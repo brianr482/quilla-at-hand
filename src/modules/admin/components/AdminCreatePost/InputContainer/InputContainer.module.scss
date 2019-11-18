@@ -13,27 +13,28 @@
   
   .input-wrapper{
     background: white;
-    border: 1px solid #dfe1e5;
-    margin: 1em 0;
-    padding: .5em 1em;
+    margin: 0.3em 0;
     max-width: 375px;
     display: flex;
     align-items: center;
-    .input{
-      flex: 1;
-    }
+    
   }
   
   .files{
+    cursor: pointer;
     background: white;
     border: 1px solid #dfe1e5;
-    margin: 1em 0;
+    margin: 0.5em 0;
     padding: .5em 1em;
-    max-width: 375px;
+    max-width: 205px;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
     min-height: 180px;
+  }
+
+  .error{
+    color: #f44336;
   }

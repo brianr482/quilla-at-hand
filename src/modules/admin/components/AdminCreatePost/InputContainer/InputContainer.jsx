@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import styles from './InputContainer.module.scss';
 
 const InputContainer = ({
-  children, subtitle, select, file, className,
+  children, subtitle, select, file, className, error,
 }) => (
   <Box className={className}>
     <Typography className={styles.subtitle} component="h1" variant="h6">
@@ -25,16 +25,20 @@ const InputContainer = ({
         })()
     }
     >
-      <>
-        {children}
-      </>
+      {children}
     </Box>
+    {error && (
+      <Typography className={styles.error} component="h1" variant="body2">
+        {error}
+      </Typography>
+    )}
   </Box>
 );
 
 InputContainer.propTypes = {
   subtitle: PropTypes.string.isRequired,
   className: PropTypes.string,
+  error: PropTypes.string,
   select: PropTypes.bool,
   file: PropTypes.bool,
   children: PropTypes.node.isRequired,
@@ -44,6 +48,7 @@ InputContainer.defaultProps = {
   select: false,
   file: false,
   className: undefined,
+  error: '',
 };
 
 export default InputContainer;

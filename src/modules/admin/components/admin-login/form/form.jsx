@@ -93,8 +93,8 @@ const Form = ({ onLogin }) => {
             </Link>
           </Grid>
         </Grid>
-    </form>
-  </Box>
+      </form>
+    </Box>
   );
 };
 
