@@ -28,3 +28,8 @@
   padding: 2em 3em;
 }
 
+.content{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

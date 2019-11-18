@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
 import {
-  Box, Typography, IconButton, TextField, Avatar,
+  Box, Typography, IconButton, TextField, CircularProgress,
 } from '@material-ui/core';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import useForm from 'react-hook-form';
 import SaveIcon from '@material-ui/icons/Save';
+import CheckIcon from '@material-ui/icons/Check';
 import * as yup from 'yup';
 import styles from './AdminCreatePost.module.scss';
 import ModuleContainer from '../ModuleContainer/ModuleContainer';
 import PictureInput from './PictureInput/PictureInput';
 import InputContainer from './InputContainer/InputContainer';
+import firebase from '../../../../firebase';
 
 const postTypes = ['Sitio Turístico', 'Restaurante', 'Tips'];
 
 const defaultValues = {
   name: '',
   type: '',
+  age: undefined,
+  address: '',
   description: '',
   picture: undefined,
 
 };
 const validationSchema = yup.object().shape({
   name: yup.string().required('Este campo es obligatorio'),
+  age: yup.string().required('Este campo es obligatorio'),
+  address: yup.string().required('Este campo es obligatorio'),
   description: yup.string().required('Este campo es obligatorio'),
   type: yup.string().required('Este campo es obligatorio'),
   file: yup
@@ -34,6 +40,8 @@ const validationSchema = yup.object().shape({
 const AdminCreatePost = () => {
   const [selectedType, setSelectedType] = useState();
   const [selectedFile, setSelectedFile] = useState();
+  const [uploading, setUploading] = useState(false);
+  const [uploadComplete, setUploadComplete] = useState(false);
   const [uploadFileFlag, setUploadFileFlag] = useState(false);
   const {
     handleSubmit, register, errors, setValue, getValues,
@@ -46,43 +54,101 @@ const AdminCreatePost = () => {
   }, [register]);
 
   const onProgressChange = (progress) => {
-    console.log(progress);
+
   };
 
-  const onFileUpload = (url) => {
-    console.log(url);
+  const onFileUpload = async (imgUrl) => {
+    const db = firebase.firestore();
+    try {
+      const {
+        name, description, type, address, age,
+      } = getValues();
+      await db.collection('places').add({
+        name,
+        age,
+        description,
+        imgUrl,
+        address,
+      });
+    } catch (error) {
+
+    }
+    setUploading(false);
+    setUploadComplete(true);
   };
 
-  const onSubmit = (values) => {
+  const onSubmit = () => {
     setUploadFileFlag(true);
+    setUploading(true);
   };
   return (
     <ModuleContainer
       title="Crear Publicación"
       edit={() => (
-        <IconButton disableRipple type="submit" onClick={handleSubmit(onSubmit)} className={styles.add}>
-          <SaveIcon fontSize="inherit" />
-        </IconButton>
+        <Box className={styles.save}>
+          <IconButton disableRipple type="submit" onClick={handleSubmit(onSubmit)} className={styles.add}>
+            {uploadComplete ? <CheckIcon fontSize="inherit" /> : <SaveIcon fontSize="inherit" />}
+          </IconButton>
+          {uploading && <CircularProgress size={55} className={styles.progress} />}
+        </Box>
       )}
       className={styles.root}
     >
       <form className={styles.container} noValidate>
+        <Box className={`${styles.wrapper} ${styles['row-wrapper']}`}>
+          <InputContainer
+            className={`${styles.wrapper} ${styles.name}`}
+            subtitle="Nombre"
+            error={errors.name && errors.name.message}
+          >
+            <TextField
+              type="input"
+              name="name"
+              error={!!errors.name}
+              fullWidth
+              inputRef={register({
+                required: 'Campo requerido',
+              })}
+              variant="outlined"
+              placeholder="Nombre"
+              inputProps={{ 'aria-label': 'nombre publicación' }}
+            />
+          </InputContainer>
+          <InputContainer
+            className={`${styles.wrapper} ${styles.name} ${styles.age}`}
+            subtitle="Edad"
+            error={errors.age && errors.age.message}
+          >
+            <TextField
+              type="input"
+              name="age"
+              error={!!errors.age}
+              fullWidth
+              inputRef={register({
+                required: 'Campo requerido',
+              })}
+              variant="outlined"
+              placeholder="Edad"
+              inputProps={{ 'aria-label': 'edad publicación' }}
+            />
+          </InputContainer>
+        </Box>
         <InputContainer
           className={`${styles.wrapper}`}
-          subtitle="Nombre de Publicación"
-          error={errors.name && errors.name.message}
+          subtitle="Dirección"
+          error={errors.address && errors.address.message}
         >
           <TextField
             type="input"
-            name="name"
-            error={!!errors.name}
+            name="address"
+            error={!!errors.address}
             fullWidth
             inputRef={register({
               required: 'Campo requerido',
             })}
             variant="outlined"
-            placeholder="Nombre"
-            inputProps={{ 'aria-label': 'nombre publicación' }}
+            placeholder="Dirección"
+            inputProps={{ 'aria-label': 'dirección publicación' }}
           />
         </InputContainer>
         <InputContainer className={`${styles.wrapper}`} select subtitle="Tipo de Publicación" error={errors.type && errors.type.message}>
@@ -104,7 +170,7 @@ const AdminCreatePost = () => {
         <Box className={`${styles.wrapper} ${styles['row-wrapper']}`}>
           <InputContainer
             className={`${styles.wrapper} ${styles.description}`}
-            subtitle="Descripción de Publicación"
+            subtitle="Descripción"
             error={errors.description && errors.description.message}
           >
             <TextField
@@ -122,7 +188,7 @@ const AdminCreatePost = () => {
               inputProps={{ 'aria-label': 'nombre publicación' }}
             />
           </InputContainer>
-          <InputContainer className={`${styles.wrapper} ${styles.image}`} file subtitle="Imagen de Publicación" error={errors.file && errors.file.message}>
+          <InputContainer className={`${styles.wrapper} ${styles.image}`} file subtitle="Imagen" error={errors.file && errors.file.message}>
             {selectedFile ? (
               <Box className={styles.imageBox}>
                 <img alt="Preview File" src={URL.createObjectURL(getValues().file[0])} className={styles['file-preview']} />

@@ -14,19 +14,18 @@
   .input-wrapper{
     background: white;
     margin: 0.3em 0;
-    max-width: 375px;
     display: flex;
     align-items: center;
     
   }
   
+
   .files{
     cursor: pointer;
     background: white;
     border: 1px solid #dfe1e5;
-    margin: 0.5em 0;
-    padding: .5em 1em;
-    max-width: 205px;
+    margin: 0.3em 0;
+    padding: .5em;
     display: flex;
     align-items: center;
     flex-direction: column;
