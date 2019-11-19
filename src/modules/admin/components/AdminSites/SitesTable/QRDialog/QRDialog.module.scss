@@ -5,3 +5,22 @@
       background-color: #00796b1c;
     }
   }
+
+  .QR-hidden {
+    display: none;
+  }
+  .QR-visible {
+    display: block;
+  }
+
+  .dialog{
+    width: 300px;
+    height: 300px;
+  }
+
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
