@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
@@ -11,7 +11,7 @@ import { Box, CircularProgress } from '@material-ui/core';
 import styles from './QRDialog.module.scss';
 
 
-export default function ResponsiveDialog({ open, id, handleClose }) {
+export default function QRDialog({ open, id, handleClose }) {
   const [imgLoaded, setImgLoaded] = useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -48,3 +48,9 @@ export default function ResponsiveDialog({ open, id, handleClose }) {
     </div>
   );
 }
+
+QRDialog.propTypes = {
+  open: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
+  handleClose: PropTypes.func.isRequired,
+};

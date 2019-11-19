@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Box from '@material-ui/core/Box';
@@ -11,7 +12,6 @@ import CropFreeOutlinedIcon from '@material-ui/icons/CropFreeOutlined';
 import styles from './SitesTableRow.module.scss';
 import QRDialog from '../QRDialog/QRDialog';
 
-const headers = ['Sitio', 'Ubicación', 'Edad'];
 
 export default function SitesTableRow({ row }) {
   const [open, setOpen] = React.useState(false);
@@ -69,3 +69,7 @@ export default function SitesTableRow({ row }) {
     </>
   );
 }
+
+SitesTableRow.propTypes = {
+  row: PropTypes.oneOfType([PropTypes.object]).isRequired,
+};
