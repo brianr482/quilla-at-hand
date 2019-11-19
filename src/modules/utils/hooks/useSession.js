@@ -3,6 +3,7 @@ import userContext from '../contexts/userContext';
 
 const useSession = () => {
   const { user } = useContext(userContext);
+
   return user;
 };
 

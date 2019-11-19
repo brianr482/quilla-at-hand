@@ -83,6 +83,7 @@ const AdminCreatePost = () => {
   };
   return (
     <ModuleContainer
+      backButton
       title="Crear Publicación"
       edit={() => (
         <Box className={styles.save}>
@@ -111,7 +112,7 @@ const AdminCreatePost = () => {
               })}
               variant="outlined"
               placeholder="Nombre"
-              inputProps={{ 'aria-label': 'nombre publicación' }}
+
             />
           </InputContainer>
           <InputContainer

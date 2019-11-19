@@ -16,6 +16,8 @@ const AdminLogin = () => {
   const [error, setError] = React.useState();
   const [loading, setLoading] = React.useState(false);
   const { user } = useAuth();
+  console.log(user);
+
   const login = async (values) => {
     setError();
     setLoading(true);
@@ -39,7 +41,7 @@ const AdminLogin = () => {
       <Box className={styles.wrapper}>
         <Container className={styles.login} maxWidth="sm">
           <Paper className={styles.paper}>
-            {user && <Redirect to="/dashboard" />}
+            {user && <Redirect to="/admin/dashboard" />}
             {loading && (
               <Box
                 display="flex"

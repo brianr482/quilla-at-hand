@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './AdminAppBar.module.scss';
 import profilePicture from '../../../../assets/perfil.jpg';
+import firebase from '../../../../firebase';
 
 const drawerWidth = 240;
 
@@ -31,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+const handleLogOut = () => {
+  firebase.auth().signOut();
+};
 
 function AdminAppBar({
   anchorEl,
@@ -103,7 +108,7 @@ function AdminAppBar({
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>Mi cuenta</MenuItem>
-            <MenuItem onClick={handleClose}>Cerrar Sesión</MenuItem>
+            <MenuItem onClick={handleLogOut}>Cerrar Sesión</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

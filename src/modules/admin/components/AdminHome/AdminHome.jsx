@@ -9,17 +9,20 @@ import ModuleContainer from '../ModuleContainer/ModuleContainer';
 
 const AdminHome = () => (
   <ModuleContainer title="Inicio">
-    <Box className ={styles.content}>
+    <Box className={styles.content}>
       <ModuleCard
         title="Sitios Turisticos"
+        url="sitios"
         icon={<RoomOutlinedIcon className={styles.icon} />}
       />
       <ModuleCard
         title="Restaurantes"
+        url="restaurantes"
         icon={<FastfoodOutlinedIcon className={styles.icon} />}
       />
       <ModuleCard
         title="Tips"
+        url="tips"
         icon={<EmojiObjectsOutlinedIcon className={styles.icon} />}
       />
     </Box>

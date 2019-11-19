@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import {
-  IconButton, Avatar, Tooltip, CircularProgress,
+  IconButton, Avatar, Tooltip, CircularProgress, Modal, Fade, Backdrop,
 } from '@material-ui/core';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
@@ -16,20 +16,37 @@ import CropFreeOutlinedIcon from '@material-ui/icons/CropFreeOutlined';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import firebase from '../../../../../firebase';
 import styles from './SitesTable.module.scss';
+import QRDialog from './QRDialog/QRDialog';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     overflowX: 'auto',
   },
-});
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
 
 const headers = ['Sitio', 'Ubicación', 'Edad'];
 
 export default function SitesTable() {
+  const [open, setOpen] = React.useState(false);
+
   const [snapshot, loading, error] = useCollection(
     firebase.firestore().collection('places'),
   );
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const classes = useStyles();
 
   return (
@@ -63,7 +80,7 @@ export default function SitesTable() {
                   <TableCell>
                     <Box className={styles.actions}>
                       <Tooltip title="Código QR">
-                        <IconButton className={styles['action-qr']}>
+                        <IconButton className={styles['action-qr']} onClick={handleOpen}>
                           <CropFreeOutlinedIcon fontSize="inherit" />
                         </IconButton>
                       </Tooltip>
@@ -71,18 +88,26 @@ export default function SitesTable() {
                         <IconButton className={styles['action-edit']}>
                           <CreateOutlinedIcon fontSize="inherit" />
                         </IconButton>
+
                       </Tooltip>
                       <Tooltip title="Eliminar">
                         <IconButton className={styles['action-delete']}>
                           <DeleteForeverOutlinedIcon fontSize="inherit" />
                         </IconButton>
                       </Tooltip>
+                      <QRDialog
+                        id={row.id}
+                        open={open}
+                        handleClickOpen={handleOpen}
+                        handleClose={handleClose}
+                      />
                     </Box>
                   </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
+
         </Paper>
       ) : (
         <Box className={styles.progress}>

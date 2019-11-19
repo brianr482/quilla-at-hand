@@ -4,11 +4,7 @@
   justify-content: space-between;
   width: 100%;
   margin: 0.5em 0;
-  .title {
-    font-size: 2em;
-    font-weight: 500;
-    color: black;
-  }
+
   .add {
     color: white;
     background-color: #00796b;
@@ -19,6 +15,16 @@
 }
 .divider {
   margin: 2em 0;
+}
+
+.title-box{
+  display:flex;
+  align-items: center;
+  .title {
+    font-size: 2em;
+    font-weight: 500;
+    color: black;
+  }
 }
 
 .wrapper {
